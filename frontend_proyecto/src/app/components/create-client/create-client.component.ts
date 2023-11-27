@@ -7,6 +7,10 @@ import { ClientService } from 'src/app/service/client.service';
 import { ConcessionaireService } from 'src/app/service/concessionaire.service';
 import { LocalityService } from 'src/app/service/locality.service';
 
+/* The CreateClientComponent class is responsible for creating a new client by gathering information
+such as their name, address, phone number, and email, as well as selecting their locality,
+concessionaire, and city. */
+
 @Component({
   selector: 'app-create-client',
   templateUrl: './create-client.component.html',

@@ -50,4 +50,12 @@ public class ClientController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Client>> searchClients(@RequestParam(required = false) String city,
+                                                      @RequestParam(required = false) String locality,
+                                                      @RequestParam(required = false) String concessionaire) {
+        List<Client> clients = clientService.searchClients(city, locality, concessionaire);
+        return new ResponseEntity<>(clients, HttpStatus.OK);
+    }
 }

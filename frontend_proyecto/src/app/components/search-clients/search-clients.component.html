@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="searchClients()" class="search-form">
+    <label for="city">City:</label>
+    <input type="text" id="city" formControlName="city">
+
+    <label for="locality">Locality:</label>
+    <input type="text" id="locality" formControlName="locality">
+
+    <label for="concessionaire">Concessionaire:</label>
+    <input type="text" id="concessionaire" formControlName="concessionaire">
+
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="clients$ | async as clients" class="client-list">
+    <div *ngIf="clients.length === 0" class="no-clients">
+      No clients found.
+    </div>
+    <div *ngFor="let client of clients" class="client-item">
+      <p>{{ client.fullName }}, {{ client.phoneNumber }}, {{ client.email }}</p>
+    </div>
+  </div>
+</div>

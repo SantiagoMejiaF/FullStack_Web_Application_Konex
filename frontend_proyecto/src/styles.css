@@ -1,3 +1,4 @@
+/* The `.container` CSS class is defining styles for a container element. */
 .container {
     height: 100vh;
     display: flex; 
@@ -5,21 +6,27 @@
     margin-top: 0;
 }
 
+/* The `.table-container` CSS class is defining styles for a container element that holds a table. */
 .table-container {
     min-height: calc(100vh - 120px);
     overflow: auto;
 }
-  
+
+/* The `.navbar` CSS class is defining styles for a navigation bar element. */
 .navbar {
     background: linear-gradient(135deg, #005499, #003366);
     color: white;
     height: 70px;
 }
 
+/* The `.navbar a` selector is targeting all anchor elements (`<a>`) that are descendants of an element
+with the class `.navbar`. It is setting the color of the text inside those anchor elements to white. */
 .navbar a {
     color: white;
 }
 
+/* The `body` selector in CSS is targeting the `<body>` element of an HTML document. The CSS properties
+inside the curly braces are defining styles for the `<body>` element. */
 body {
     height: 100%;
     margin: 0;
@@ -28,6 +35,7 @@ body {
     color: #333;
 }
 
+/* The CSS code you provided is defining styles for a table element. */
 table {
     max-width: 100%;
     border-collapse: collapse;
@@ -38,17 +46,26 @@ table {
 }
 
 
+/* The CSS code `table td` is targeting all `<td>` elements that are descendants of a `<table>`
+element. It is setting the border of each `<td>` element to be 1 pixel wide and solid black. It is
+also setting the background color of each `<td>` element to be white. */
 table td {
     border: 1px solid black;
     background-color: white;
 }
 
+/* The CSS code `th` is targeting all `<th>` elements in a table. It is setting the background color of
+each `<th>` element to `#406A8C`, which is a shade of blue. It is also setting the text color inside
+each `<th>` element to white and adding a padding of 10 pixels around the content of each `<th>`
+element. */
 th {
     background: #406A8C;
     color: white;
     padding: 10px;
 }
 
+/* The CSS code `h2.display-4` is targeting all `<h2>` elements with the class `display-4`. It is
+setting the following styles for those elements: */
 h2.display-4 {
     font-size: 20px;
     text-align: center; 
@@ -56,6 +73,7 @@ h2.display-4 {
     margin-bottom: 20px; 
 }
 
+/* The `.gradient-button` CSS class is defining styles for a button element. */
 .gradient-button {
     background: #406A8C;
     color: white;
@@ -66,14 +84,25 @@ h2.display-4 {
     transition: background 0.3s;
 }
 
+/* The CSS code `.gradient-button:hover` is targeting the `.gradient-button` class when it is being
+hovered over by the user. It is setting the background of the button to a linear gradient that
+starts with the color `#005499` and ends with the color `#003366`. This creates a gradient effect on
+the button background when it is being hovered over. */
 .gradient-button:hover {
     background:linear-gradient(135deg, #005499, #003366);
 }
 
+/* The CSS code `.gradient-button:focus { outline: none; }` is removing the default outline that
+appears around the button when it is in focus. When a button is clicked or selected using the
+keyboard, it typically receives focus and a default outline is displayed around it. This CSS code is
+targeting the `.gradient-button` class when it is in focus and setting the outline property to none,
+effectively removing the outline. This can be useful for styling purposes or to customize the
+appearance of buttons when they are in focus. */
 .gradient-button:focus {
     outline: none; 
 }
 
+/* The `.card` CSS class is defining styles for a card element. */
 .card {
     background-color: #ffffff; 
     border: 2px solid #e0e0e0; 
@@ -84,6 +113,7 @@ h2.display-4 {
     transition: box-shadow 0.3s; 
 }
 
+/* The `.card-header` CSS class is defining styles for the header of a card element. */
 .card-header {
     background-color: #406A8C; 
     color: white; 
@@ -95,6 +125,7 @@ h2.display-4 {
 }
 
 
+/* The `.btn-info-custom` CSS class is defining styles for a button element with a custom style. */
 .btn-info-custom {
     background-color: #1390BF;
     color: white;
@@ -102,10 +133,16 @@ h2.display-4 {
     transition: background-color 0.3s; 
 }
 
+/* The CSS code `.btn-info-custom:hover` is targeting the `.btn-info-custom` class when it is being
+hovered over by the user. It is setting the background color of the button to `#0b607e`, which is a
+darker shade of blue. This creates a hover effect on the button, changing its background color when
+it is being hovered over. */
 .btn-info-custom:hover {
     background-color: #0b607e;
 }
 
+/* The CSS code `.button-cancel` is defining styles for a button element with the class
+`button-cancel`. */
 .button-cancel {
     background-color: #AF1414; 
     border-radius: 5px;
@@ -116,10 +153,17 @@ h2.display-4 {
     transition: background-color 0.3s;
 }
 
+/* The CSS code `.button-cancel:hover { background-color: #8D0E0E; }` is targeting the `.button-cancel`
+class when it is being hovered over by the user. It is setting the background color of the button to
+`#8D0E0E`, which is a darker shade of red. This creates a hover effect on the button, changing its
+background color to a darker shade of red when it is being hovered over. */
 .button-cancel:hover {
     background-color: #8D0E0E;
 }
 
+/* The `.button-spacing` CSS class is defining a style for an element with a left margin of 25 pixels.
+This class can be applied to any HTML element to add a left margin of 25 pixels, creating spacing
+between the element and other adjacent elements. */
 .button-spacing {
     margin-left: 25px; 
 }

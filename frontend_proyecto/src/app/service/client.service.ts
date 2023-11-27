@@ -8,6 +8,9 @@ import { ClientDTO } from '../models/clientDTO';
   providedIn: 'root'
 })
 
+/* The ClientService class is responsible for making HTTP requests to interact with the client API
+endpoints. */
+
 export class ClientService {
 
   private baseUrl = 'http://localhost:8081/api/clients';
@@ -22,7 +25,7 @@ export class ClientService {
     return this.httpClient.post<Client>(`${this.baseUrl}`, client);
   }
 
-  editClient(id: number, client: Client): Observable<Client> {
+  updateClient(id: number, client: Client): Observable<Client> {
     return this.httpClient.put<Client>(`${this.baseUrl}/${id}`, client);
   }
 
@@ -36,5 +39,21 @@ export class ClientService {
 
   getAllClientsNames(): Observable<string[]> {
     return this.httpClient.get<string[]>(`${this.baseUrl}/names`);
+  }
+
+  searchClientsByLocality(locality: string): Observable<Client[]> {
+    return this.httpClient.get<Client[]>(`${this.baseUrl}/search?locality=${locality}`);
+  }
+
+  searchClientsByCity(city: string): Observable<Client[]> {
+    return this.httpClient.get<Client[]>(`${this.baseUrl}/search?city=${city}`);
+  }
+
+  searchClientsByConcessionaire(concessionaire: string): Observable<Client[]> {
+    return this.httpClient.get<Client[]>(`${this.baseUrl}/search?concessionaire=${concessionaire}`);
+  }
+
+  searchClients(city: string, locality: string, concessionaire: string): Observable<Client[]> {
+    return this.httpClient.get<Client[]>(`${this.baseUrl}/search?city=${city}&locality=${locality}&concessionaire=${concessionaire}`);
   }
 }

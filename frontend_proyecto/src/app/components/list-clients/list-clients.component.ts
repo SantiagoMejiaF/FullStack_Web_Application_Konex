@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/service/client.service';
 
+/* The ListClientsComponent class is responsible for displaying a list of clients, allowing the user to
+create, edit, and delete clients. */
+
 @Component({
   selector: 'app-list-clients',
   templateUrl: './list-clients.component.html',

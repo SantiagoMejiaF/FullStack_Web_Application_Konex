@@ -55,6 +55,11 @@ public class ClientService implements UpdateClientUseCase, ReadClientUseCase,
     }
 
     @Override
+    public List<Client> searchClients(String city, String locality, String concessionaire) {
+        return readClientUseCase.searchClients(city, locality, concessionaire);
+    }
+
+    @Override
     public Optional<Client> updateClient(Long id, Client client) {
         return updateClientUseCase.updateClient(id, client);
     }

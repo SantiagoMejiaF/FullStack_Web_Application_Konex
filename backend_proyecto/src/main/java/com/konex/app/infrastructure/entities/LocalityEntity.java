@@ -21,7 +21,7 @@ public class LocalityEntity {
 
     private String localityName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "concessionaire_id")
     private ConcessionaireEntity concessionaire;
 

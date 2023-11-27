@@ -1,0 +1,50 @@
+.search-container {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .client-list {
+    margin-top: 20px;
+  }
+  
+  .no-clients {
+    color: #ff0000;
+    font-style: italic;
+  }
+  
+  .client-item {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  

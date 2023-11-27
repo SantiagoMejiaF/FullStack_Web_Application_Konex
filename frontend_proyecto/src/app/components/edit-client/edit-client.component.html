@@ -72,52 +72,7 @@
                   required
                 />
             </div>
-
-            <div class="form-group">
-              <label for="city">Select the city:</label>
-              <select
-                id="city"
-                name="city"
-                class="form-control"
-                [(ngModel)]="selectedCity"
-                (change)="onCitySelected()"
-              >
-                <option *ngFor="let city of cities" [value]="city">
-                  {{ city }}
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="dealer">Select the concessionaire:</label>
-              <select
-                id="concessionaires"
-                name="concessionaires"
-                class="form-control"
-                [(ngModel)]="selectedConcessionaire"
-                (change)="onConcessionaireSelected()"
-              >
-                <option *ngFor="let concessionaire of concessionaires" [value]="concessionaire">
-                  {{ concessionaire }}
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="locality">Select the locality:</label>
-              <select
-                id="locality"
-                name="locality"
-                class="form-control"
-                [(ngModel)]="selectedLocality"
-              >
-                <option *ngFor="let locality of localities" [value]="locality">
-                  {{ locality }}
-                </option>
-              </select>
-            </div>
             <br />
-
             <div class="form-group text-center">
               <button class="gradient-button" id="btnCreateCustomer">Save Customer</button>
               <span class="button-spacing"></span>

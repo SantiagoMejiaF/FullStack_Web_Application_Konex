@@ -5,6 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+/* The ConcessionaireService class is responsible for making HTTP requests to retrieve data related to
+concessionaires. */
+
 export class ConcessionaireService {
 
   constructor(private http: HttpClient) {}

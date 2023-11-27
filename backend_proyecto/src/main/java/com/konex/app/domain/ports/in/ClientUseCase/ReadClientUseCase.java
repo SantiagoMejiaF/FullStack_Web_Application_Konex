@@ -9,4 +9,5 @@ public interface ReadClientUseCase {
     Optional<Client> getClientById(Long id);
     List<Client> getAllClients();
     List<String> getAllClientsNames();
+    List<Client> searchClients(String city, String locality, String concessionaire);
 }
