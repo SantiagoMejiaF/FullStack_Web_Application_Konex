@@ -69,6 +69,6 @@ public class JpaConcessionaireRepositoryAdapter implements ConcessionaireReposit
 
     @Override
     public Long findConcessionaireIdByName(String name) {
-        return jpaConcessionaireRepository.findIdByConcessionaireName(name);
+        return jpaConcessionaireRepository.findConcessionaireIdByName(name);
     }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../models/client';
+import { ClientDTO } from '../models/clientDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ClientService {
     return this.httpClient.get<Client[]>(`${this.baseUrl}`);
   }
 
-  createClient(client: Client): Observable<Object> {
+  createClient(client: ClientDTO): Observable<Object> {
     return this.httpClient.post<Client>(`${this.baseUrl}`, client);
   }
 

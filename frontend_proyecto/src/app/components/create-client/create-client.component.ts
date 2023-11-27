@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client';
+import { ClientDTO } from 'src/app/models/clientDTO';
 import { CityService } from 'src/app/service/city.service';
 import { ClientService } from 'src/app/service/client.service';
 import { ConcessionaireService } from 'src/app/service/concessionaire.service';
@@ -90,10 +91,26 @@ export class CreateClientComponent {
     this.router.navigate(['/clients']);
   }
 
-  onSubmit() {
-    this.client.locality.concessionaire.city.cityName = this.selectedCity;
-    this.client.locality.concessionaire.concessionaireName = this.selectedConcessionaire;
-    this.clientService.createClient(this.client).subscribe(
+  onSubmit() 
+  {
+    const completeClient: ClientDTO = {
+      fullName: this.client.fullName,
+      idNumber: this.client.idNumber,
+      address: this.client.address,
+      phoneNumber: this.client.phoneNumber,
+      email: this.client.email,
+      locality: {
+        localityName: this.selectedLocality,
+        concessionaire: {
+          concessionaireName: this.selectedConcessionaire,
+          city: {
+            cityName: this.selectedCity,
+          },
+        },
+      },
+    };
+    
+    this.clientService.createClient(completeClient).subscribe(
       data => {
         console.log(data);
         this.goToClientsList();
