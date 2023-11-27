@@ -1,6 +1,6 @@
-package com.konex.app.application.useCases;
+package com.konex.app.application.useCases.ClientUseCaseImpl;
 
-import com.konex.app.domain.ports.in.DeleteClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.DeleteClientUseCase;
 import com.konex.app.domain.ports.out.ClientRepositoryPort;
 
 public class DeleteClientUseCaseImpl implements DeleteClientUseCase {

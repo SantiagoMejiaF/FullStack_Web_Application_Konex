@@ -1,4 +1,4 @@
-package com.konex.app.domain.ports.in;
+package com.konex.app.domain.ports.in.ClientUseCase;
 
 import com.konex.app.domain.model.Client;
 import java.util.Optional;

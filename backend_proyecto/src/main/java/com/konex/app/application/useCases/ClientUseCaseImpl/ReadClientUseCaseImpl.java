@@ -1,7 +1,7 @@
-package com.konex.app.application.useCases;
+package com.konex.app.application.useCases.ClientUseCaseImpl;
 
 import com.konex.app.domain.model.Client;
-import com.konex.app.domain.ports.in.ReadClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.ReadClientUseCase;
 import com.konex.app.domain.ports.out.ClientRepositoryPort;
 import java.util.List;
 import java.util.Optional;

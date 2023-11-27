@@ -1,14 +1,11 @@
 package com.konex.app.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-@Getter
-@Setter
+@NoArgsConstructor
+@Data
 public class Client {
 
     private Long id;
@@ -17,4 +14,5 @@ public class Client {
     private String address;
     private String phoneNumber;
     private String email;
+    private Locality locality;
 }

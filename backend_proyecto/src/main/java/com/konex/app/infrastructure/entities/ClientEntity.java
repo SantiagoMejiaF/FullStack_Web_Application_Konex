@@ -1,10 +1,8 @@
 package com.konex.app.infrastructure.entities;
 
 import com.konex.app.domain.model.Client;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.konex.app.domain.model.Concessionaire;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "clients")
 public class ClientEntity {
 
     @Id
@@ -26,25 +25,31 @@ public class ClientEntity {
     private String phoneNumber;
     private String email;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "locality_id")
+    private LocalityEntity locality;
+
     public static ClientEntity fromDomainModel(Client client) {
-        return new ClientEntity(
-                client.getId(),
-                client.getFullName(),
-                client.getIdNumber(),
-                client.getAddress(),
-                client.getPhoneNumber(),
-                client.getEmail()
-        );
+        return ClientEntity.builder()
+                .id(client.getId())
+                .fullName(client.getFullName())
+                .idNumber(client.getIdNumber())
+                .address(client.getAddress())
+                .phoneNumber(client.getPhoneNumber())
+                .email(client.getEmail())
+                .locality(LocalityEntity.fromDomainModel(client.getLocality()))
+                .build();
     }
 
     public Client toDomainModel() {
-        return new Client(
-                this.id,
-                this.fullName,
-                this.idNumber,
-                this.address,
-                this.phoneNumber,
-                this.email
-        );
+        return Client.builder()
+                .id(this.id)
+                .fullName(this.fullName)
+                .idNumber(this.idNumber)
+                .address(this.address)
+                .phoneNumber(this.phoneNumber)
+                .email(this.email)
+                .locality(this.locality.toDomainModel())
+                .build();
     }
 }

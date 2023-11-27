@@ -4,25 +4,30 @@ import com.konex.app.domain.model.Client;
 import com.konex.app.domain.ports.out.ClientRepositoryPort;
 import com.konex.app.infrastructure.entities.ClientEntity;
 import com.konex.app.infrastructure.repositories.JpaClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class JpaClientRepositoryPortAdapter implements ClientRepositoryPort {
+public class JpaClientRepositoryAdapter implements ClientRepositoryPort {
 
-    private final JpaClientRepository jpaClientRepository;
-
-    public JpaClientRepositoryPortAdapter(JpaClientRepository jpaClientRepository) {
-        this.jpaClientRepository = jpaClientRepository;
-    }
+    @Autowired
+    private JpaClientRepository jpaClientRepository;
 
     @Override
     public Client save(Client client) {
         ClientEntity clientEntity = ClientEntity.fromDomainModel(client);
         ClientEntity savedClientEntity = jpaClientRepository.save(clientEntity);
         return savedClientEntity.toDomainModel();
+    }
+
+    @Override
+    public List<Client> saveAll(List<Client> clients) {
+        return jpaClientRepository.saveAll(clients.stream().map(ClientEntity::fromDomainModel)
+                .collect(Collectors.toList())).stream().map(ClientEntity::toDomainModel)
+                .collect(Collectors.toList());
     }
 
     @Override

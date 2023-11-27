@@ -1,10 +1,10 @@
 package com.konex.app.application.services;
 
 import com.konex.app.domain.model.Client;
-import com.konex.app.domain.ports.in.UpdateClientUseCase;
-import com.konex.app.domain.ports.in.ReadClientUseCase;
-import com.konex.app.domain.ports.in.DeleteClientUseCase;
-import com.konex.app.domain.ports.in.CreateClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.UpdateClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.ReadClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.DeleteClientUseCase;
+import com.konex.app.domain.ports.in.ClientUseCase.CreateClientUseCase;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +16,8 @@ public class ClientService implements UpdateClientUseCase, ReadClientUseCase,
     private final DeleteClientUseCase deleteClientUseCase;
     private final CreateClientUseCase createClientUseCase;
 
-    public ClientService(CreateClientUseCase createClientUseCase, ReadClientUseCase readClientUseCase, UpdateClientUseCase updateClientUseCase,  DeleteClientUseCase deleteClientUseCase) {
+    public ClientService(CreateClientUseCase createClientUseCase, ReadClientUseCase readClientUseCase, UpdateClientUseCase updateClientUseCase,
+                         DeleteClientUseCase deleteClientUseCase) {
         this.updateClientUseCase = updateClientUseCase;
         this.readClientUseCase = readClientUseCase;
         this.deleteClientUseCase = deleteClientUseCase;
@@ -26,6 +27,11 @@ public class ClientService implements UpdateClientUseCase, ReadClientUseCase,
     @Override
     public Client createClient(Client client) {
         return createClientUseCase.createClient(client);
+    }
+
+    @Override
+    public List<Client> createClients(List<Client> Clients) {
+        return createClientUseCase.createClients(Clients);
     }
 
     @Override
