@@ -1,6 +1,5 @@
 package com.konex.app.domain.ports.out;
 
-import com.konex.app.domain.model.City;
 import com.konex.app.domain.model.Concessionaire;
 import java.util.List;
 import java.util.Optional;
@@ -12,4 +11,7 @@ public interface ConcessionaireRepositoryPort {
     Optional<Concessionaire> update(Concessionaire concessionaire);
     Optional<Concessionaire> findById(Long id);
     List<Concessionaire> findAll();
+    List<String> findAllConcessionairesNames();
+    List<String> findAllConcessionairesNamesByCity(Long cityId);
+    Long findConcessionaireIdByName(String name);
 }

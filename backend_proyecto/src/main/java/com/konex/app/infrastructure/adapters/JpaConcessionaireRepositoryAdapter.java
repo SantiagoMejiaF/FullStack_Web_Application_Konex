@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class JpaConcessionaireRepositoryAdapter implements ConcessionaireRepositoryPort{
@@ -51,5 +52,23 @@ public class JpaConcessionaireRepositoryAdapter implements ConcessionaireReposit
     public List<Concessionaire> findAll() {
         return jpaConcessionaireRepository.findAll().stream().map(ConcessionaireEntity::toDomainModel)
                 .collect(java.util.stream.Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllConcessionairesNames() {
+        return jpaConcessionaireRepository.findAll().stream().map(ConcessionaireEntity::getConcessionaireName)
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+
+    @Override
+    public List<String> findAllConcessionairesNamesByCity(Long cityId) {
+        return jpaConcessionaireRepository.findAllByCityId(cityId).stream().map(ConcessionaireEntity::getConcessionaireName)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long findConcessionaireIdByName(String name) {
+        return jpaConcessionaireRepository.findIdByConcessionaireName(name);
     }
 }

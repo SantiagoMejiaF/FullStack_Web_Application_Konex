@@ -23,4 +23,14 @@ public class ReadCityUseCaseImpl implements ReadCityUseCase {
     public List<City> getAllCities() {
         return cityRepositoryPort.findAll();
     }
+
+    @Override
+    public List<String> getAllCitiesNames() {
+        return cityRepositoryPort.findAllCitiesNames();
+    }
+
+    @Override
+    public Long getCityIdByName(String name) {
+        return cityRepositoryPort.findCityIdByName(name);
+    }
 }

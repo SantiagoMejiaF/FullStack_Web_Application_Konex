@@ -23,4 +23,14 @@ public class ReadLocalityUseCaseImpl implements ReadLocalityUseCase {
     public List<Locality> getAllLocalities() {
         return localityRepositoryPort.findAll();
     }
+
+    @Override
+    public List<String> getAllLocalitiesNames() {
+        return localityRepositoryPort.findAllLocalitiesNames();
+    }
+
+    @Override
+    public List<String> getAllLocalitiesByConcessionaireId(Long id) {
+        return localityRepositoryPort.findAllLocalitiesByConcessionaireId(id);
+    }
 }

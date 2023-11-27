@@ -23,4 +23,19 @@ public class ReadConcessionaireUseCaseImpl implements ReadConcessionaireUseCase 
     public List<Concessionaire> getAllConcessionaires() {
         return concessionaireRepositoryPort.findAll();
     }
+
+    @Override
+    public List<String> getAllConcessionairesNames() {
+        return concessionaireRepositoryPort.findAllConcessionairesNames();
+    }
+
+    @Override
+    public List<String> getConcessionaireNamesByCity(Long cityId) {
+        return concessionaireRepositoryPort.findAllConcessionairesNamesByCity(cityId);
+    }
+
+    @Override
+    public Long getConcessionaireIdByName(String name) {
+        return concessionaireRepositoryPort.findConcessionaireIdByName(name);
+    }
 }

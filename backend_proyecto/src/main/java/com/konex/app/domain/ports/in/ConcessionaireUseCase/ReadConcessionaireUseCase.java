@@ -7,4 +7,7 @@ import java.util.Optional;
 public interface ReadConcessionaireUseCase {
     Optional<Concessionaire> getConcessionaireById(Long id);
     List<Concessionaire> getAllConcessionaires();
+    List<String> getAllConcessionairesNames();
+    List<String> getConcessionaireNamesByCity(Long cityId);
+    Long getConcessionaireIdByName(String name);
 }

@@ -44,4 +44,14 @@ public class LocalityService implements CreateLocalityUseCase, ReadLocalityUseCa
     public List<Locality> getAllLocalities() {
         return readLocalityUseCase.getAllLocalities();
     }
+
+    @Override
+    public List<String> getAllLocalitiesNames() {
+        return readLocalityUseCase.getAllLocalitiesNames();
+    }
+
+    @Override
+    public List<String> getAllLocalitiesByConcessionaireId(Long id) {
+        return readLocalityUseCase.getAllLocalitiesByConcessionaireId(id);
+    }
 }

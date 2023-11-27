@@ -8,4 +8,6 @@ public interface ReadCityUseCase {
 
     Optional<City> getCityById(Long id);
     List<City> getAllCities();
+    List<String> getAllCitiesNames();
+    Long getCityIdByName(String name);
 }

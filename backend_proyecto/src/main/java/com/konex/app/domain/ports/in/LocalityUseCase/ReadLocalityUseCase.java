@@ -8,4 +8,6 @@ public interface ReadLocalityUseCase {
 
     Optional<Locality> getLocalityById(Long id);
     List<Locality> getAllLocalities();
+    List<String> getAllLocalitiesNames();
+    List<String> getAllLocalitiesByConcessionaireId(Long id);
 }

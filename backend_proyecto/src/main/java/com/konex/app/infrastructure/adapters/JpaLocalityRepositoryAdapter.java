@@ -1,6 +1,5 @@
 package com.konex.app.infrastructure.adapters;
 
-import com.konex.app.domain.model.Concessionaire;
 import com.konex.app.domain.model.Locality;
 import com.konex.app.domain.ports.out.LocalityRepositoryPort;
 import com.konex.app.infrastructure.entities.ConcessionaireEntity;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class JpaLocalityRepositoryAdapter implements LocalityRepositoryPort {
@@ -53,5 +53,17 @@ public class JpaLocalityRepositoryAdapter implements LocalityRepositoryPort {
     public List<Locality> findAll() {
         return jpaLocalityRepository.findAll().stream().map(LocalityEntity::toDomainModel)
                 .collect(java.util.stream.Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllLocalitiesNames() {
+        return jpaLocalityRepository.findAll().stream().map(LocalityEntity::getLocalityName)
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllLocalitiesByConcessionaireId(Long concessionaireId) {
+        return jpaLocalityRepository.findAllByConcessionaireId(concessionaireId).stream().map(LocalityEntity::getLocalityName)
+                .collect(Collectors.toList());
     }
 }

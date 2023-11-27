@@ -46,4 +46,19 @@ public class ConcessionaireService implements CreateConcessionaireUseCase, ReadC
     public List<Concessionaire> getAllConcessionaires() {
         return readConcessionaireUseCase.getAllConcessionaires();
     }
+
+    @Override
+    public List<String> getAllConcessionairesNames() {
+        return readConcessionaireUseCase.getAllConcessionairesNames();
+    }
+
+    @Override
+    public List<String> getConcessionaireNamesByCity(Long cityId) {
+        return readConcessionaireUseCase.getConcessionaireNamesByCity(cityId);
+    }
+
+    @Override
+    public Long getConcessionaireIdByName(String name) {
+        return readConcessionaireUseCase.getConcessionaireIdByName(name);
+    }
 }

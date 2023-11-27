@@ -50,6 +50,11 @@ public class ClientService implements UpdateClientUseCase, ReadClientUseCase,
     }
 
     @Override
+    public List<String> getAllClientsNames() {
+        return readClientUseCase.getAllClientsNames();
+    }
+
+    @Override
     public Optional<Client> updateClient(Long id, Client client) {
         return updateClientUseCase.updateClient(id, client);
     }

@@ -23,4 +23,9 @@ public class ReadClientUseCaseImpl implements ReadClientUseCase {
     public List<Client> getAllClients() {
         return clientRepositoryPort.findAll();
     }
+
+    @Override
+    public List<String> getAllClientsNames() {
+        return clientRepositoryPort.findAllClientsNames();
+    }
 }

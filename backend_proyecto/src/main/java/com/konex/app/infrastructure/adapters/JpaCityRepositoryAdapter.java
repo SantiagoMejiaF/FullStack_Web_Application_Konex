@@ -49,6 +49,17 @@ public class JpaCityRepositoryAdapter implements CityRepositoryPort {
     }
 
     @Override
+    public List<String> findAllCitiesNames() {
+        return jpaCityRepository.findAll().stream().map(CityEntity::getCityName)
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    @Override
+    public Long findCityIdByName(String name) {
+        return jpaCityRepository.findCityIdByName(name);
+    }
+
+    @Override
     public Optional<City> findById(Long id) {
         return jpaCityRepository.findById(id).map(CityEntity::toDomainModel);
     }

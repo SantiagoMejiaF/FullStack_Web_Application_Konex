@@ -1,0 +1,59 @@
+<app-menu></app-menu>
+<div class="container">
+  <br />
+  <br />
+  <br />
+  <div class="table">
+    <table class="table table-bordered" id="tablaVehiculos">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col" class="text-center">Full Name</th>
+          <th scope="col" class="text-center">Identification Number</th>
+          <th scope="col" class="text-center">Phone Number</th>
+          <th scope="col" class="text-center">Email</th>
+          <th scope="col" class="text-center">City</th>
+          <th scope="col" class="text-center">Residence Address</th>
+          <th scope="col" class="text-center">Locality</th>
+          <th scope="col" class="text-center">Concessionaire</th>
+          <th scope="col" class="text-center">Accions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td class="text-center">{{ client.fullName }}</td>
+          <td class="text-center">{{ client.idNumber }}</td>
+          <td class="text-center">{{ client.phoneNumber }}</td>
+          <td class="text-center">{{ client.email}}</td>
+          <td class="text-center">{{ client.locality.concessionaire.city.cityName}}</td>
+          <td class="text-center">{{ client.address }}</td>
+          <td class="text-center">{{ client.locality.localityName}}</td>
+          <td class="text-center">{{ client.locality.concessionaire.concessionaireName}}</td>
+          <td class="text-center">
+            <div class="btn-group" role="group">
+              <button 
+                class="btn btn-info-custom btn-sm rounded-pill mx-1"
+                (click)="navigateToEditClient(client.id)"
+              >
+                Edit
+              </button>
+              <button
+                class="btn btn-danger btn-sm rounded-pill mx-1"
+                (click)="deleteClient(client.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center mb-4">
+        <button class="gradient-button" id="btnIngresarVehiculoTabla" (click)="navigateToCreateClient()">
+          Create new client
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

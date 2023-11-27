@@ -11,4 +11,6 @@ public interface LocalityRepositoryPort {
     Optional<Locality> update(Locality locality);
     Optional<Locality> findById(Long id);
     List<Locality> findAll();
+    List<String> findAllLocalitiesNames();
+    List<String> findAllLocalitiesByConcessionaireId(Long id);
 }

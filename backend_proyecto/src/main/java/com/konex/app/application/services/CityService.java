@@ -45,4 +45,14 @@ public class CityService implements CreateCityUseCase, ReadCityUseCase, UpdateCi
     public List<City> getAllCities() {
         return readCityUseCase.getAllCities();
     }
+
+    @Override
+    public List<String> getAllCitiesNames() {
+        return readCityUseCase.getAllCitiesNames();
+    }
+
+    @Override
+    public Long getCityIdByName(String name) {
+        return readCityUseCase.getCityIdByName(name);
+    }
 }

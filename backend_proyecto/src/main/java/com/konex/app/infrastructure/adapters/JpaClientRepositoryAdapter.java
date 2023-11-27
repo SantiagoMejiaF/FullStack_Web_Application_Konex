@@ -59,4 +59,10 @@ public class JpaClientRepositoryAdapter implements ClientRepositoryPort {
         }
         return false;
     }
+
+    @Override
+    public List<String> findAllClientsNames() {
+        return jpaClientRepository.findAll().stream().map(ClientEntity::getFullName)
+                .collect(Collectors.toList());
+    }
 }

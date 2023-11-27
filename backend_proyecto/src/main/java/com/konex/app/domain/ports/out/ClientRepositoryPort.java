@@ -12,4 +12,5 @@ public interface ClientRepositoryPort {
     List<Client> findAll();
     Optional<Client> update(Client client);
     boolean deleteById(Long id);
+    List<String> findAllClientsNames();
 }
